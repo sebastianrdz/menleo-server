@@ -35,11 +35,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag menleo-server:latest
-
       - name: Log in to Docker Hub
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
 
-      - name: Push the Docker image
-        run: docker push menleo-server:latest
+      - name: Build and Push the Docker image
+        run: |
+          docker build . --file Dockerfile --tag menleo-server:latest
+          docker push sebastianrdz01/menleo-server:latest
