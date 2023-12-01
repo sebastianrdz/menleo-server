@@ -39,7 +39,7 @@ jobs:
         run: docker build . --file Dockerfile --tag menleo-server:latest
 
       - name: Log in to Docker Hub
-        run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
 
       - name: Push the Docker image
         run: docker push menleo-server:latest
