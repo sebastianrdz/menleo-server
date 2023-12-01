@@ -41,4 +41,4 @@ jobs:
       - name: Build and Push the Docker image
         run: |
           docker build . --file Dockerfile --tag menleo-server:latest
-          docker push sebastianrdz01/menleo-server:latest
+          docker push menleo-server:latest
