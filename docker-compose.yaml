@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  menleo-server:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: menleo-server
+    ports:
+      - "3000:3000"
